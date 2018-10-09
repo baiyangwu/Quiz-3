@@ -40,6 +40,9 @@ public class Deck {
 		return (null);
 	}
 
+	//------------------------------------------------------Quiz 3----------------------------------------------------
+	
+	
 	public int getiDeckCount()
 	{
 		return cardsInDeck.size();
