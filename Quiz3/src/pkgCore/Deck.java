@@ -1,7 +1,10 @@
 package pkgCore;
 
+import java.nio.file.DirectoryStream.Filter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import pkgEnum.eRank;
 import pkgEnum.eSuit;
@@ -39,12 +42,34 @@ public class Deck {
 		}
 		return (null);
 	}
-
-	//------------------------------------------------------Quiz 3----------------------------------------------------
-	
 	
 	public int getiDeckCount()
 	{
 		return cardsInDeck.size();
 	}
+
+	//------------------------------------------------------Quiz 3----------------------------------------------------
+	
+	
+	public int getRemaining(Object eNum) {
+		Stream<Card> a;
+		int result = 0;
+		eNum = cardsInDeck.remove(eNum);
+		
+		if(eNum instanceof eSuit) {
+			a = cardsInDeck.stream();
+			result = a.filter(x -> x.geteSuit() == eNum).collect(Collectors.toList()).size();
+			
+		}
+		if(eNum instanceof eRank) {
+			a = cardsInDeck.stream();
+			result = a.filter(x -> x.geteRank() == eNum).collect(Collectors.toList()).size();
+		}
+		
+		return result;
+	}
+	
+	
+	
+
 }
