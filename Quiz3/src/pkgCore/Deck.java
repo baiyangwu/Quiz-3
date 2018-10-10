@@ -54,17 +54,17 @@ public class Deck {
 	public int getRemaining(Object eNum) {
 		Stream<Card> card;
 		int result = 0;
-		
+		card = cardsInDeck.stream();
+		Card a = (Card) eNum;
+
 		if(eNum instanceof eSuit) {
-			card = cardsInDeck.stream();
-			result = card.filter(a -> a.geteSuit() == eNum).collect(Collectors.toList()).size();
+			result = card.filter(t -> a.geteSuit() == eNum).collect(Collectors.toList()).size();
 			
 		}
 		if(eNum instanceof eRank) {
-			card = cardsInDeck.stream();
-			result = card.filter(a -> a.geteRank() == eNum).collect(Collectors.toList()).size();
+			result = card.filter(t -> a.geteRank()  == eNum).collect(Collectors.toList()).size();
 		}
-		
+
 		return result;
 	}
 	
