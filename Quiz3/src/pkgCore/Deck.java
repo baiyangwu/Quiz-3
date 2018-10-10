@@ -52,23 +52,21 @@ public class Deck {
 	
 	
 	public int getRemaining(Object eNum) {
-		Stream<Card> a;
+		Stream<Card> card;
 		int result = 0;
-		eNum = cardsInDeck.remove(eNum);
 		
 		if(eNum instanceof eSuit) {
-			a = cardsInDeck.stream();
-			result = a.filter(x -> x.geteSuit() == eNum).collect(Collectors.toList()).size();
+			card = cardsInDeck.stream();
+			result = card.filter(a -> a.geteSuit() == eNum).collect(Collectors.toList()).size();
 			
 		}
 		if(eNum instanceof eRank) {
-			a = cardsInDeck.stream();
-			result = a.filter(x -> x.geteRank() == eNum).collect(Collectors.toList()).size();
+			card = cardsInDeck.stream();
+			result = card.filter(a -> a.geteRank() == eNum).collect(Collectors.toList()).size();
 		}
 		
 		return result;
 	}
-	
 	
 	
 
